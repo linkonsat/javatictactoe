@@ -12,14 +12,15 @@ class Menu {
         String playerSymbol = getPlayerIcon();
         firstPlayer.setdefaultSymbol(playerSymbol);
         Player secondPlayer = getSecondPlayer(firstPlayer.defaultSymbol);
+        round();
     }
 
     public static void round() {
-
+        display.displayBoard(board.board);
     }
 
-    public static win() {
-        
+    public static void win() {
+
     }
 
     public static String getPlayerIcon() {
@@ -60,8 +61,8 @@ class Board {
 }
 
 class Display {
-    public void displayBoard(int board) {
-        for (int i = 0; i <= 3; ++i) {
+    public static void displayBoard(int[][] board) {
+        for (int i = 0; i <= 2; ++i) {
         System.out.println(Arrays.toString(board[i]));
         }
     }
