@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 class Menu {
     static Board board = new Board();
@@ -19,8 +20,7 @@ class Menu {
         display.displayBoard(board.board);
     }
 
-    public static void win() {
-
+    public static void win(int[][] board) {
     }
 
     public static String getPlayerIcon() {
@@ -55,8 +55,25 @@ class Player {
 }
 
 class Board {
-    int[][] board = new int[3][3];
+    static int[][] board = new int[3][3];
     public static void main(String[] args) {        
+    }
+
+    public static void getColumns() {
+        ArrayList<String> cars = new ArrayList<String>();
+        for (int i = 0; i <= 2; ++i) {
+            int[] firstDiagonal = new int[]{board[0][i], board[1][i], board[2][i]};
+        }
+    }
+    public static void getRows() {
+        ArrayList<String> cars = new ArrayList<String>();
+        for (int i = 0; i <= 2; ++i) {
+            int[] firstDiagonal = new int[]{board[i][0], board[i][1], board[i][2]};
+        }
+    }
+    public static void getDiagonals() {
+       int[] firstDiagonal = new int[]{board[0][0], board[1][1], board[2][2]};
+       int[] secondDiagonal = new int[]{board[0][2], board[1][1], board[2][0]};
     }
 }
 
