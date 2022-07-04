@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 class Menu {
     static Board board = new Board();
@@ -59,21 +61,34 @@ class Board {
     public static void main(String[] args) {        
     }
 
-    public static void getColumns() {
+    public static boolean getColumns() {
         ArrayList<String> cars = new ArrayList<String>();
-        for (int i = 0; i <= 2; ++i) {
-            int[] firstDiagonal = new int[]{board[0][i], board[1][i], board[2][i]};
+        for (int t = 0; t <= 2; ++t) {
+            int[] firstDiagonal = new int[]{board[0][t], board[1][t], board[2][t]};
+            Set<Integer> distinct = Arrays.stream(firstDiagonal).boxed().collect(Collectors.toSet());
+            boolean allEqual = distinct.size() == 1;
         }
+      return false;
     }
-    public static void getRows() {
+    public static boolean getRows() {
         ArrayList<String> cars = new ArrayList<String>();
-        for (int i = 0; i <= 2; ++i) {
-            int[] firstDiagonal = new int[]{board[i][0], board[i][1], board[i][2]};
+        for (int t = 0; t <= 2; ++t) {
+            int[] firstDiagonal = new int[]{board[t][0], board[t][1], board[t][2]};
+            Set<Integer> distinct = Arrays.stream(firstDiagonal).boxed().collect(Collectors.toSet());
+            boolean allEqual = distinct.size() == 1;
         }
+      return false;
     }
-    public static void getDiagonals() {
+    public static boolean getDiagonals() {
        int[] firstDiagonal = new int[]{board[0][0], board[1][1], board[2][2]};
        int[] secondDiagonal = new int[]{board[0][2], board[1][1], board[2][0]};
+       for (int t = 0; t <= 1; ++t) {
+        Set<Integer> distinct = Arrays.stream(firstDiagonal).boxed().collect(Collectors.toSet());
+        Set<Integer> secondDistinct = Arrays.stream(secondDiagonal).boxed().collect(Collectors.toSet());
+        boolean allEqual = distinct.size() == 1;
+        boolean secondAllEqual = secondDistinct.size() == 1;
+       }
+       return false;
     }
 }
 
